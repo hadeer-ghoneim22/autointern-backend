@@ -31,11 +31,12 @@ FRONTEND_URL = os.getenv('FRONTEND_URL', 'https://auto-intern-ai.vercel.app') # 
 # للسماح بالطلبات من الواجهة الأمامية قم بتكوين CORS
 CORS(app, resources={
     r"/*": {
-        "origins": ["https://auto-intern-ai.vercel.app", "http://localhost:3000", "http://127.0.0.1:3000"],
+        "origins": ["https://auto-intern-ai-5poo.vercel.app/", "http://localhost:3000", "http://127.0.0.1:3000"],
         "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
         "allow_headers": ["Content-Type", "Authorization"]
     }
-})
+} )
+
 
 # Register blueprints
 app.register_blueprint(user_bp, url_prefix='/api')
