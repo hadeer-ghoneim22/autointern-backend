@@ -29,7 +29,13 @@ app.config['GOOGLE_CLIENT_SECRET'] = os.getenv('GOOGLE_CLIENT_SECRET')
 FRONTEND_URL = os.getenv('FRONTEND_URL', 'https://auto-intern-ai.vercel.app') # استخدم الرابط الجديد
 
 # للسماح بالطلبات من الواجهة الأمامية قم بتكوين CORS
-CORS(app, resources={r"/*": {"origins": FRONTEND_URL}})
+CORS(app, resources={
+    r"/*": {
+        "origins": ["https://auto-intern-ai.vercel.app", "http://localhost:3000", "http://127.0.0.1:3000"],
+        "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+        "allow_headers": ["Content-Type", "Authorization"]
+    }
+})
 
 # Register blueprints
 app.register_blueprint(user_bp, url_prefix='/api')
