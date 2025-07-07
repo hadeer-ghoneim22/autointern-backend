@@ -98,7 +98,7 @@ def login():
         }), 200
         
     except Exception as e:
-        return jsonify({'error': str(e)}), 500
+        return jsonify({'error': 'Login failed', 'message': str(e)}), 500
 
 @auth_bp.route('/google-login', methods=['POST'])
 def google_login():
